@@ -1,0 +1,1 @@
+# smknegeri4kotabengkulu
