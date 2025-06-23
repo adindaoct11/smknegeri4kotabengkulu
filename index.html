@@ -3,84 +3,444 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profil Sekolah SMKN 4 Bengkulu</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>NTCOM Bengkulu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Sticky header */
+    header {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+      color: white;
+      padding: 30px 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    nav {
+      background-color: #023e8a;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd60a;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #0077b6;
+    }
+
+    .services ul {
+      max-width: 800px;
+      margin: auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    .services li {
+      background: #ffffff;
+      margin-bottom: 12px;
+      padding: 15px 20px;
+      border-left: 6px solid #00b4d8;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .services li:hover {
+      transform: translateX(10px);
+      background-color: #e0f7ff;
+    }
+
+    .contact {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+    }
+
+    .laptop-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.laptop-card {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    #laptop-second {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px 0;
+  text-align: center;
+}
+
+    .laptop-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .laptop-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .laptop-card div {
+      padding: 15px;
+    }
+
+    .laptop-card h3 {
+      margin-bottom: 10px;
+      color: #0077b6;
+    }
+
+    .laptop-card p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .contact p a {
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    .contact p a:hover {
+      text-decoration: underline;
+    }
+
+    .testimonials {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .testimonials p {
+      background: #ffffff;
+      padding: 15px 20px;
+      border-left: 4px solid #00b4d8;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonials p:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background-color: #001d3d;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #backToTop:hover {
+      background-color: #023e8a;
+    }
+
+    /* Animation on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 10px;
+        font-size: 0.9rem;
+      }
+
+      .laptop-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .laptop-card {
+        width: 90%;
+      }
+      @media (max-width: 992px) {
+  .laptop-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .laptop-card {
+    width: 90%;
+  }
+}
+
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="logo.jpg" alt="Logo SMKN 4 Bengkulu" class="logo" />
-    <h1>Profil Sekolah SMK Negeri 4 Kota Bengkulu</h1>
-    <nav>
-      <a href="#home" onclick="showSection('home')">Home</a>
-      <a href="#contact" onclick="showSection('contact')">Contact</a>
-      <a href="#about" onclick="showSection('about')">About</a>
-      <a href="#gallery" onclick="showSection('gallery')">Galeri</a>
-    </nav>
-  </header>
 
-  <!-- Konten -->
-  <div class="content">
-    <div class="section fade active" id="home">
-      <div class="section-title">Identitas Sekolah</div>
-      <div class="info">
-        <p>NPSN: 10703107</p>
-        <p>Status: Negeri</p>
-        <p>Bentuk Pendidikan: SMK</p>
-        <p>Status Kepemilikan: Pemerintah Daerah</p>
-        <p>Akreditasi: A</p>
-        <p>Kepsek: Asefriyanto</p>
+<header>
+  <h1>NT COM</h1>
+  <p>Tempat Service Laptop Terpercaya dan Profesional</p>
+</header>
+
+<nav>
+  <a href="#layanan">Layanan</a>
+  <a href="#kontak">Kontak</a>
+  <a href="#laptop-second">Laptop Second</a>
+</nav>
+
+<section class="services fade-in" id="layanan">
+  <h2>Layanan Kami</h2>
+  <ul>
+    <li>Jual Laptop Second</li>
+    <li>Perbaikan Laptop Mati Total</li>
+    <li>Ganti Keyboard, Layar, dan Baterai</li>
+    <li>Upgrade RAM dan SSD</li>
+    <li>Instalasi Ulang Windows & Software</li>
+    <li>Pembersihan Kipas & Overheating</li>
+    <li>Perbaikan HP</li>
+  </ul>
+</section>
+
+<section class="contact fade-in" id="kontak">
+  <h2>Kontak Kami</h2>
+  <p>Alamat: Jl. Meranti Raya, Ratu Agung, Kota Bengkulu</p>
+  <p>WhatsApp: <a href="https://wa.me/628388266918" target="_blank">0838-8266-918</a></p>
+  <p>Email: info@ntcom-service.com</p>
+  <p>Instagram: <a href="https://instagram.com/ntcombengkulu" target="_blank">@ntcombengkulu</a></p>
+  <p>Facebook: Owner NTcom</p>
+</section>
+
+<section id="laptop-second" class="fade-in">
+    <h2>Laptop Second</h2>
+    <div class="laptop-section">
+      <!-- Card laptop diulang 15 kali -->
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/mackbook.jpg" alt="MacBook Air" />
+        <div>
+          <h3>MacBook Air</h3>
+          <p>Apple M3 Chip, RAM 8GB, SSD 256GB</p>
+          <p>Layar 15.3", 2880 x 1864 pixel</p>
+          <p> Magic Keyboard Backlit dengan Touch ID</p>
+          <p><strong>Rp 16.000.000 (nego)</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*MacBook%20Air*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+      
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/laptop2.jpg" alt="HP 14-BW000AU" />
+        <div>
+          <h3>HP 14-BW000AU</h3>
+          <p>AMD E2-9000e, RAM 8GB, SSD 256GB</p>
+          <p>Layar 14" HD</p>
+          <p><strong>Rp 2.300.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*HP%2014-BW000AU*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+  
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/dell vostro.jpg" alt="Dell Vostro P75G" />
+        <div>
+          <h3>Dell Vostro P75G</h3>
+          <p>Core i7, RAM 8GB, SSD 256GB</p>
+          <p>Layar 14inch, Full HD</p>
+          <p><strong>Rp 4.500.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*Dell%20Vostro*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+
+    <div class="laptop-card fade-in">
+        <img src="laptop seond/acer aspire lite.jpg" alt="Acer Aspire Lite 14" />
+        <div>
+          <h3>Acer Aspire Lite 14</h3>
+          <p>Intel(R) N100, RAM 8GB, SSD 256GB</p>
+          <p>Layar 14inch, Full HD</p>
+          <p><strong>Rp. 4.100.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*Acer Aspire%2Lite 14*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/lenovo ideapad 3.jpg" alt="Lenovo Ideapad 3 14IGL05" />
+        <div>
+          <h3>Lenovo Ideapad 3 14IGL05</h3>
+          <p>Intel Celeron N4020, RAM 4GB, SSD 256GB</p>
+          <p>Layar 14inch, HD</p>
+          <p><strong>Rp. 3.400.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*Lenovo Ideapad%23 14IGL05*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/hp probook.jpg" alt=HP ProBook X360 11 G4 EE" />
+        <div>
+          <h3>HP ProBook X360 11 G4 EE</h3>
+          <p> Core m3, RAM 4GB, SSD 256GB</p>
+          <p>Layar 14inch, HD</p>
+          <p><strong>Rp. 2.650.000 </strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*HP Probook%X360 11G4 EE"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/Toshiba Satellite C40-A.jpg" alt="Toshiba Satellite C40-A" />
+        <div>
+          <h3>Toshiba Satellite C40-A</h3>
+          <p>Corei5, RAM 4GB, SSD 128GB</p>
+          <p>Layar 14inch, HD</p>
+          <p><strong>Rp. 2.300.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*Toshiba Satellite% C40-A*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="laptop-card fade-in">
+        <img src="laptop seond/" alt="Asus X441S" />
+        <div>
+          <h3>Asus X441S</h3>
+          <p>Intel Celeron N3060, RAM 2sGB, SSD 256GB</p>
+          <p>Layar 14inch, HD</p>
+          <p><strong>Rp. 2.300.000</strong></p>
+          <a href="https://wa.me/628388266918?text=Halo%20NTCOM,%20saya%20ingin%20order%20*Asus%2X4415*"
+             target="_blank"
+             style="display:inline-block;background:#0077b6;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:10px;">
+            Order Sekarang
+          </a>
+        </div>
       </div>
     </div>
+  </section>  
 
-    <div class="section fade" id="contact">
-      <div class="section-title">Contact</div>
-      <div class="info">
-        <p>Email: smkn4kotabengkulu1@gmail.com</p>
-        <p>No telepon: +62 768 20286</p>
-        <p>Alamat: JL. Enggano</p>
-        <p>RT / RW: 9 / 2</p>
-        <p>Kelurahan: Pasar Bengkulu</p>
-        <p>Kecamatan: Sungai Serut</p>
-        <p>Kota: Bengkulu</p>
-        <p>Provinsi: Bengkulu</p>
-      </div>
-    </div>
+<footer>
+  &copy; 2025 NTCOM Bengkulu. All rights reserved.
+</footer>
 
-    <div class="section fade" id="about">
-      <div class="section-title">About</div>
-      <div class="info">
-        <p>SMK Negeri 4 Kota Bengkulu merupakan sekolah unggulan dengan berbagai jurusan terbaik di kota ini.</p>
-      </div>
-    </div>
+<!-- Tombol Back to Top -->
+<button id="backToTop" onclick="scrollToTop()">↑</button>
 
-    <div class="section fade" id="gallery">
-      <div class="section-title">Galeri Sekolah</div>
-      <div class="gallery">
-        <img src="Cuplikan layar 2025-04-22 092751.png" alt="Foto 1" />
-        <img src="IMG-20231122-WA0027.jpg" alt="Foto 2" />
-        <img src="WIN_20241113_12_40_28_Pro.jpg" alt="Foto 3" />
-      </div>
+<script>
+  const backToTopBtn = document.getElementById("backToTop");
 
-      <div class="section-title" style="margin-top: 30px;">Peta Lokasi</div>
-<div class="map">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127603.0614692111!2d102.23700915377326!3d-3.8120175295843744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e36b1a661d0f165%3A0x6a9bba0034ad2f26!2sSMK%20Negeri%204%20Kota%20Bengkulu!5e0!3m2!1sen!2sid!4v1713787452367!5m2!1sen!2sid" 
-    width="100%" 
-    height="300" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+  window.addEventListener("scroll", () => {
+    backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
 
+    // Animasi fade-in saat scroll
+    document.querySelectorAll('.fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 SMK Negeri 4 Bengkulu. All rights reserved.</p>
-  </footer>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
 
-  <script src="script.js"></script>
 </body>
 </html>
